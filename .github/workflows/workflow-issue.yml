@@ -1,0 +1,17 @@
+name: workflow qui se declenche lors de la creation d'une issue
+
+on:
+    issues:
+        types: opened
+
+jobs:
+    commentaire:
+        runs-on: ubuntu-latest
+        permissions:
+            issues: write
+        steps:
+            - name: Répondre à une issue
+              env:
+                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                ISSUE_URL: ${{ github.event.issue.html_url}}
+              run: gh issue comment $ISSUE_URL --body "Merci d'avoir ouvert cette issue"
