@@ -1,0 +1,17 @@
+# Nom pour le workflow
+name: Premier workflow
+
+# On precise quel est le declencheur de notre workflow
+on: workflow_dispatch
+
+
+jobs:
+    # definition de la premiere action a realiser
+    premier-job:
+        #On precise le systeme d'exploitation (runner)
+        runs-on: ubuntu-latest
+
+        # On ecrit ici les etapes de notre action
+        steps:
+            - name: Dit bonjour
+              run: echo "Hello World !!"
