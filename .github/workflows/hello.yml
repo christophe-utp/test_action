@@ -25,6 +25,7 @@ jobs:
               run: echo "GoodBye !"
     
     second-job:
+        needs: premier-job
         runs-on: ubuntu-latest
         steps:
             - name: étape
